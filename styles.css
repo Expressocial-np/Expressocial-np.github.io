@@ -1,0 +1,429 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+/* nav bar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+#navbar {
+    height: 4rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+
+#navbar.scrolled {
+    background-color: #d32b2b;
+    color: white;
+
+}
+
+#navbar.scrolled #nav-items .links {
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: #d32b2b;
+    }
+}
+
+#navbar:not(.scrolled) #nav-company-title {
+    visibility: hidden;
+}
+
+#nav-company-title {
+    font-size: 24px;
+}
+
+#nav-items {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    transition-property: transform, left;
+    transition-duration: 0.5s;
+    white-space: nowrap;
+}
+
+#navbar.scrolled #nav-items {
+    left: 100%;
+    transform: translate(-100%);
+}
+
+#nav-items .links {
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 3px;
+    transition-property: color, background-color, border-radius;
+    transition-duration: 0.25s;
+}
+
+#nav-items .links {
+    text-decoration: none;
+    color: black;
+}
+
+#nav-items .links:hover {
+    background-color: #d32b2b;
+    border-radius: 20px;
+    color: white;
+}
+
+button {
+    appearance: none;
+    background: none;
+    border: none;
+}
+
+.ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    user-select: none;
+}
+
+.hamRotate.active {
+    transform: rotate(45deg);
+}
+
+.line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: #000;
+    stroke-width: 5.5;
+    stroke-linecap: round;
+}
+
+.ham8 .top {
+    stroke-dasharray: 40 160;
+}
+
+.ham8 .middle {
+    stroke-dasharray: 40 142;
+    transform-origin: 50%;
+    transition: transform 400ms;
+}
+
+.ham8 .bottom {
+    stroke-dasharray: 40 85;
+    transform-origin: 50%;
+    transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+.ham8.active .top {
+    stroke-dashoffset: -64px;
+}
+
+.ham8.active .middle {
+    transform: rotate(90deg);
+}
+
+.ham8.active .bottom {
+    stroke-dashoffset: -64px;
+}
+
+#bars {
+    display: none;
+}
+
+
+/* home section */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+#company-title {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#company-title span {
+    font-size: 7vw;
+    font-weight: 700;
+}
+
+#company-title p {
+    font-size: 1.5rem;
+    margin-top: 1.4rem;
+    letter-spacing: .1em;
+    font-weight: 600;
+}
+
+hr {
+    height: 2px soild black;
+    background-color: black;
+    margin: 20px 2%;
+}
+
+#back-image {
+    height: 400px;
+    width: 400px;
+}
+
+#back-image img {
+    height: 100%;
+}
+
+/* about us section */
+#about-title-image {
+    height: 100vh;
+    display: flex;
+    padding: 0px 7rem;
+    position: relative;
+}
+
+#about-title {
+    width: 70%;
+    margin: 10rem 0;
+}
+
+#about-title h1 {
+    font-size: 7rem;
+    margin-bottom: 3rem;
+}
+
+#description-first,
+#description-second {
+    background-color: rgb(225, 225, 225);
+    margin-bottom: 1.5rem;
+    padding: 15px 25px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 35px 55px -30px rgb(39, 39, 39);
+    border-radius: 10px;
+}
+
+#description-first span i,
+#description-second span i {
+    font-size: 4rem;
+}
+
+#description-first .paragraph,
+#description-second .paragraph {
+    letter-spacing: 2px;
+}
+
+#about-image {
+    height: 500px;
+    width: 40%;
+    background-color: aquamarine;
+    position: absolute;
+    top: 8.5rem;
+    right: 7rem;
+    z-index: -1;
+}
+
+
+#about-image img {
+    height: 100%;
+}
+
+/* our team section */
+#our-team,
+#our-partners {
+    height: 100vh;
+    padding: 3rem 0 0;
+}
+
+#team,
+#partners {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 175px;
+}
+
+#our-team h1,
+#our-partners h1 {
+    font-size: 5rem;
+    text-align: center;
+}
+
+#prashim,
+#saroj,
+#sabin,
+#artseum,
+#workshop {
+    width: 250px;
+    height: 300px;
+    background-color: black;
+    position: relative;
+    color: white;
+    border-radius: 8px;
+}
+
+#prashim-image,
+#saroj-image,
+#sabin-image,
+#artseum-image,
+#workshop-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid white;
+    position: absolute;
+    top: -75px;
+    left: 50px;
+}
+
+#prashim-image img,
+#saroj-image img,
+#sabin-image img,
+#artseum-image img,
+#workshop-image img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+#prashim-info,
+#saroj-info,
+#sabin-info,
+#artseum-info,
+#workshop-info {
+    text-align: center;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    font-size: 35px;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.work {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* photos swipe section */
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 600px;
+    height: 500px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+#partnership {
+    height: 100vh;
+    text-align: center;
+    padding: 25px;
+}
+
+#partnership h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#partnership-images {
+    padding: 25px;
+}
+
+#partnership-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 16px;
+}
+
+#partnership-images div:last-child {
+    grid-column: span 2;
+}
+
+
+#partnership-images .images {
+    height: 100px;
+    width: 100px;
+    background-image: url("./images/2.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+
+#contact-info {
+    height: 100vh;
+    padding: 10px 0rem;
+}
+
+#contact-info h1 {
+    font-size: 3rem;
+}
+
+#contact-info,
+#infos {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+
+
+
+
+@media (max-width: 700px) {
+    #bars {
+        display: block;
+    }
+    
+    #bars:not([aria-expanded="true"]) + #nav-items {
+        display: none;
+    }
+    #nav-items {
+        position: fixed;
+        top: 4rem;
+        right: 0;
+        left: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        padding-inline: 25px;
+        background-color: #d32b2b;
+        /* width: 25%; */
+        width: fit-content;
+        height: 100%;
+        transform: none;
+        * {
+            color: white !important;
+        }
+    }
+
+}
